@@ -11,12 +11,16 @@ const App: Component = () => {
     },
   ]);
 
+  // update todos function
+  const updateTodo = (id: number) =>
+    setTodos((curr) => curr.filter((todo) => todo.id != id));
+
   return (
     <div class="p-3">
       <h2>Todo</h2>
       <AddTodo setTodos={setTodos} />
       {/* display todos */}
-      <DisplayTodo todos={todos()}/>
+      <DisplayTodo todos={todos()} updateTodo={updateTodo}/>
     </div>
   );
 };

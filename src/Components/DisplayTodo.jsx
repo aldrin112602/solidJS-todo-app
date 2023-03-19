@@ -2,9 +2,11 @@ const DisplayTodo = (props) => {
   const deleteTodo = (id) => {
     if (confirm("Are you sure to remove that item ?")) {
       // delete
-      alert(id)
+     props.updateTodo(id);
     }
   };
+  
+
   return (
     <div
       style="min-height: 300px; max-height: 600px;"
