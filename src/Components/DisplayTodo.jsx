@@ -1,9 +1,6 @@
 const DisplayTodo = (props) => {
   const deleteTodo = (id) => {
-    if (confirm("Are you sure to remove that item ?")) {
-      // delete
-     props.updateTodo(id);
-    }
+    confirm("Are you sure to remove that item ?") && props.updateTodo(id);
   };
   
 
