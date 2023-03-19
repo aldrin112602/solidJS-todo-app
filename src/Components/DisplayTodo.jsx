@@ -22,6 +22,7 @@ const DisplayTodo = (props) => {
                   className="form-check-input p-2"
                   type="checkbox"
                   checked={done ? true : false}
+                  onChange={() => props.toggleCheck(id)}
                 />
                 <label
                   className={
