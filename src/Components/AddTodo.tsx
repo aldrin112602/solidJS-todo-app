@@ -1,12 +1,12 @@
 import { createSignal } from "solid-js";
 
-const AddTodo = (props) => {
+const AddTodo = (props: any) => {
   const [todo, setTodo] = createSignal("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     todo().trim().length &&
-      props.setTodos((curr) => [
+      props.setTodos((curr: any) => [
         ...curr,
         {
           text: todo(),
@@ -28,9 +28,9 @@ const AddTodo = (props) => {
         value={todo()}
         onChange={(e) => setTodo(e.target.value)}
         type="text"
-        className="form-control"
+        class="form-control"
       />
-      <button className="btn btn-primary">Add</button>
+      <button class="btn btn-primary">Add</button>
     </form>
   );
 };
