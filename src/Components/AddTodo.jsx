@@ -1,12 +1,12 @@
 import { createSignal } from "solid-js";
 
-const AddTodo = (props: any) => {
+const AddTodo = (props) => {
   const [todo, setTodo] = createSignal("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     todo().trim().length &&
-      props.setTodos((curr: any) => [
+      props.setTodos((curr) => [
         ...curr,
         {
           text: todo(),
