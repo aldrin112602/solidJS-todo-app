@@ -1,23 +1,18 @@
-import { createSignal } from "solid-js";
+import { Component, createSignal } from "solid-js";
 
-const AddTodo = (props) => {
+const AddTodo: Component<{
+  onTodoAdd: (text: string) => void;
+}> = (props) => {
   const [todo, setTodo] = createSignal("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit: HTMLFormElement["onsubmit"] = (e) => {
     e.preventDefault();
-    todo().trim().length &&
-      props.setTodos((curr) => [
-        ...curr,
-        {
-          text: todo(),
-          id: Math.floor(Math.random() * 999999),
-          done: false,
-        },
-      ]);
 
+    if (!todo().trim().length) return;
+
+    props.onTodoAdd(todo());
     setTodo("");
   };
-
 
   return (
     <form
@@ -26,7 +21,7 @@ const AddTodo = (props) => {
     >
       <input
         value={todo()}
-        onChange={(e) => setTodo(e.target.value)}
+        onChange={(e) => setTodo(e.currentTarget.value)}
         type="text"
         class="form-control"
       />
